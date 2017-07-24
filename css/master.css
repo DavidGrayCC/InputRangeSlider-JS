@@ -1,0 +1,137 @@
+.slider-ticks {
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  padding: 0px;
+  margin-left: 9px;
+  width: 207.5px;
+  height: 10px;
+  background: repeating-linear-gradient(90deg, #eaeef1, #eaeef1 1px, transparent 1px, transparent calc(100%/7));
+  /*background-size: 191.5px 15px;*/
+  /*change the percentage value in background to the input tag step number and / 100 to align ticks with the steps*/
+}
+
+.slider-ticks-static {
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  padding: 0px;
+  margin-left: 6px;
+  width: 191.5px;
+  height: 10px;
+  background: repeating-linear-gradient(90deg, #eaeef1, #eaeef1 1px, transparent 1px, transparent calc(100%/11));
+  background-size: 125px 15px;
+
+  /*change the percentage value in background to the input tag step number and / 100 to align ticks with the steps*/
+}
+
+.numbers {
+  display: inline-block;
+  margin-left: 5px;
+  text-align: center;
+  font-family: ProximaNova;
+	font-size: 14px;
+	color: rgb(255, 139, 54);
+}
+
+.numbers-left {
+  display: inline-block;
+  margin-left: 19px;
+  text-align: center;
+  font-family: ProximaNova;
+	font-size: 14px;
+	color: rgb(255, 139, 54);
+}
+
+.numbers-middle {
+  display: inline-block;
+  margin-left: 14px;
+  text-align: center;
+  font-family: ProximaNova;
+	font-size: 14px;
+	color: rgb(255, 139, 54);
+}
+
+.numbers-right {
+  display: inline-block;
+  margin-left: 12px;
+  text-align: center;
+  font-family: ProximaNova;
+	font-size: 14px;
+	color: rgb(255, 139, 54);
+}
+
+/*ff8b36*/
+
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+
+    /*required for proper track sizing in FF*/
+    width: 191.5px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: #eaeef1;
+    border: none;
+    border-radius: 2px;
+    height: 5px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: #ffffff;
+    border: solid 1px #b9c2cf;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    margin-top: -4px;
+    margin-bottom: -4px
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-moz-range-thumb {
+    background-color: #ffffff;
+	  border: solid 1px #b9c2cf;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+}
+
+input[type=range]::-ms-track {
+    width: 191.5px;
+    height: 5px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+input[type=range]::-ms-thumb {
+    background-color: #ffffff;
+    border: solid 1px #b9c2cf;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+}
+
+input[type='range'] {
+    background-color: var(--slider-background);
+    border-top: var(--slider-border);
+    border-bottom: var(--slider-border);
+  }
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: var(--bar-height);
+  border-radius: 0;
+  background: linear-gradient(90deg, var(--slider-fill-color1), var(--slider-fill-color2)) 0 100%no-repeat content-box;
+}
+
+#range2::-webkit-slider-runnable-track {
+   background: linear-gradient(90deg, #ff8b36, #ff8b36) 0 100% no-repeat content-box;
+}

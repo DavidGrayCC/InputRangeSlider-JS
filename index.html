@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/master.css">
+    <script src="./js/script.min.js" charset="utf-8"></script>
+  </head>
+  <style media="screen">
+  :root {
+    /* TIP: use same color to disable gradient */
+    --slider-fill-color1: rgba(247, 4, 32, 0.87);
+    --slider-fill-color2: rgb(255, 139, 54);
+    --slider-background: rgb(234, 238, 241);
+    --bar-height: 5px;
+  }
+  </style>
+
+  <body>
+    <input type="range" step="1" min="0" max="6" id="range2">
+      <div class="slider-ticks">
+      </div>
+
+
+      <span class="numbers">
+          1
+      </span>
+      <span class="numbers-left">
+          3
+      </span>
+      <span class="numbers-left">
+          5
+      </span>
+      <span class="numbers-middle">
+          10
+      </span>
+      <span class="numbers-middle">
+          15
+      </span>
+      <span class="numbers-right">
+          20
+      </span>
+      <span class="numbers-right">
+          30
+      </span>
+
+      <script>
+
+    "use strict";
+    const DEBUG = true;
+
+    var inlineStyle = document.createElement('style');
+    var rangeSelector = document.querySelectorAll('[type=range]');
+    var inlineStyleContent = new Array;
+
+    document.body.appendChild(inlineStyle);
+
+    var eventname = new Event('input')
+
+    for (let item of rangeSelector) {
+      item.addEventListener('input', function() {
+        let rangeInterval = Number(this.getAttribute('max') - this.getAttribute('min'));
+        let rangePercent = (Number(this.value) + Math.abs(this.getAttribute('min'))) / rangeInterval * 100;
+
+        DEBUG ? console.log("#" + this.id + ": " + rangePercent + "%") : '';
+
+        writeStyle({
+          id: this.id,
+          percent: rangePercent
+        });
+      }, false);
+
+      item.dispatchEvent(eventname); // update bars at startup
+    }
+
+    function writeStyle(obj) {
+      var find = inlineStyleContent.map(x => x.id).indexOf(obj.id);
+      var styleText = "";
+
+      if (find === -1) {
+        inlineStyleContent.push(obj)
+      } else {
+        inlineStyleContent[find] = obj;
+      }
+
+      for (let item of inlineStyleContent) {
+        styleText += '#' + item.id + '::-webkit-slider-runnable-track{background-size:' + item.percent + '% 100%} ';
+      }
+      inlineStyle.textContent = styleText;
+    }
+  </script>
+  </body>
+</html>
